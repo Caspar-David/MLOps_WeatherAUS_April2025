@@ -29,6 +29,7 @@ A living checklist and roadmap to guide the MLOps WeatherAUS repo toward product
 - [ ] Move Jupyter notebooks to `/notebooks/`
 - [ ] Confirm EDA, preprocessing, and modeling are working
 - [ ] Summarize experiments in a README inside `/notebooks/`
+- [ ] Create chunks of `weatherAUS.csv` for post-deployment testing
 
 ---
 
@@ -38,6 +39,7 @@ A living checklist and roadmap to guide the MLOps WeatherAUS repo toward product
 - [ ] Add feature engineering to `src/features/`
 - [ ] Add model training and prediction to `src/models/`
 - [ ] Add reusable utilities in `src/utils/`
+- [ ] Rebuild `train.py`, `preprocessing.py`, and `train_model.py` for modular code
 
 ---
 
