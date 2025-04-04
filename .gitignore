@@ -172,3 +172,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Ignore processed datasets and outputs
+*.pkl
+*.csv
+data/processed/
+weatherAUS.csv
+weatherAUS_pca_train.csv
+weatherAUS_pca_test.csv
+xgboost_model.pkl
+
