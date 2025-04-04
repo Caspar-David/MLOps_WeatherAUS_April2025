@@ -1,23 +1,20 @@
 import pandas as pd
-import yaml
 from sklearn.model_selection import train_test_split
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
-with open("config.yaml", "r") as file:
-    config = yaml.safe_load(file)
+def transform_data(df):
+    X = df.drop(columns=["RainTomorrow"])
+    y = df["RainTomorrow"]
 
-def transform_data():
-    data_path = config["data_transformation"]["data_path"]
-    df = pd.read_csv(data_path)
+    X = pd.get_dummies(X)  # basic encoding, improve later if needed
 
-    # Split data
-    train, test = train_test_split(df, test_size=0.2, random_state=1)
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
 
-    # Save transformed data
-    train.to_csv(config["model_trainer"]["X_train_path"], index=False)
-    test.to_csv(config["model_trainer"]["X_test_path"], index=False)
+    pca = PCA(n_components=0.95)
+    X_pca = pca.fit_transform(X_scaled)
 
-    print("Data transformation completed.")
+    X_train, X_test, y_train, y_test = train_test_split(X_pca, y, test_size=0.2, random_state=42)
 
-if __name__ == "__main__":
-    transform_data()
-
+    return X_train, X_test, y_train, y_test
