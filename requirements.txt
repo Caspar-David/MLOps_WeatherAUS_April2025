@@ -28,3 +28,4 @@ python-box==6.0.2
 
 # === Additional Dependencies ===
 imbalanced-learn
+flake8
