@@ -1,4 +1,8 @@
 # tests/test_model_training.py
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from src.models.model_trainer import train_model
 import pandas as pd
 
